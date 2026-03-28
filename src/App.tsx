@@ -49,7 +49,7 @@ function App() {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft)
   const [isUnlocked, setIsUnlocked] = useState(() => new Date() >= new Date(UNLOCK_AT))
   const [showTapHint, setShowTapHint] = useState(false)
-  const [photoSrc, setPhotoSrc] = useState('/couple-photo.jpg')
+  const [photoSrc, setPhotoSrc] = useState('/couple-photo.webp')
   const audioRef = useRef<HTMLAudioElement | null>(null)
 
   useEffect(() => {
