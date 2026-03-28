@@ -49,6 +49,7 @@ function App() {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft)
   const [isUnlocked, setIsUnlocked] = useState(() => new Date() >= new Date(UNLOCK_AT))
   const [showTapHint, setShowTapHint] = useState(false)
+  const [photoSrc, setPhotoSrc] = useState('/couple-photo.jpg')
   const audioRef = useRef<HTMLAudioElement | null>(null)
 
   useEffect(() => {
@@ -442,8 +443,9 @@ function App() {
             <div className="photo-wrap">
               <img
                 className="photo"
-                src="/birthday-photo.svg"
+                src={photoSrc}
                 alt={`Happy birthday ${BIRTHDAY_NAME}`}
+                onError={() => setPhotoSrc('/birthday-photo.svg')}
               />
             </div>
 
