@@ -8,9 +8,9 @@ type TimeLeft = {
   seconds: number
 }
 
-const UNLOCK_AT = '2026-03-29T16:50:00'
+const UNLOCK_AT = '2026-03-29T16:53:00'
 const BIRTHDAY_NAME = 'Bé Iu'
-const LOCK_TITLE = 'Chưa đến giờ đâu ❤️'
+const LOCK_TITLE = 'Chưa đến giờ đâu bae ❤️'
 const LOCK_SUBTITLE = 'Quay lại sau nhé 💖'
 const WISH_TITLE = 'Chúc mừng sinh nhật'
 const MESSAGE_LINES = [
