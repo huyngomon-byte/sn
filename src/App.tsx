@@ -121,7 +121,7 @@ function App() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Parisienne&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap');
 
         :root {
           font-family: 'Cormorant Garamond', serif;
@@ -219,9 +219,10 @@ function App() {
 
         .lock-title {
           margin: 0;
-          font-family: 'Parisienne', cursive;
-          font-size: clamp(2.9rem, 10vw, 4rem);
-          font-weight: 400;
+          font-family: 'Cormorant Garamond', serif;
+          font-size: clamp(2.7rem, 10vw, 3.7rem);
+          font-style: italic;
+          font-weight: 600;
           line-height: 1.02;
           color: #fff2f8;
           animation: softPulse 2.4s ease-in-out infinite;
