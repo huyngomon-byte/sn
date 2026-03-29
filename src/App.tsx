@@ -9,17 +9,16 @@ type TimeLeft = {
 }
 
 const UNLOCK_AT = '2026-04-16T00:00:00'
-const BIRTHDAY_NAME = 'B\u00e9 Iu'
-const LOCK_TITLE = 'Ch\u01b0a \u0111\u1ebfn gi\u1edd \u0111\u00e2u \ud83d\ude0f'
-const LOCK_SUBTITLE = 'Quay l\u1ea1i sau nh\u00e9 \ud83d\udc96'
-const WISH_TITLE = 'Ch\u00fac m\u1eebng sinh nh\u1eadt'
-const WISH_SUBTITLE = 'Tu\u1ed5i m\u1edbi th\u1eadt d\u1ecbu d\u00e0ng v\u00e0 r\u1ef1c r\u1ee1 nh\u00e9'
+const BIRTHDAY_NAME = 'Em Iu'
+const LOCK_TITLE = 'Chưa đến giờ đâu ❤️'
+const LOCK_SUBTITLE = 'Quay lại sau nhé 💖'
+const WISH_TITLE = 'Chúc mừng sinh nhật'
 const MESSAGE_LINES = [
-  'Ch\u00fac em tu\u1ed5i m\u1edbi lu\u00f4n vui v\u1ebb,',
-  'lu\u00f4n xinh \u0111\u1eb9p v\u00e0 lu\u00f4n \u1edf b\u00ean anh \ud83d\ude0f',
-  'C\u1ea3m \u01a1n v\u00ec \u0111\u00e3 xu\u1ea5t hi\u1ec7n trong cu\u1ed9c \u0111\u1eddi anh.',
+  'Chúc em tuổi mới luôn vui vẻ,',
+  'luôn xinh đẹp và luôn ở bên anh ❤️',
+  'Cảm ơn vì đã xuất hiện trong cuộc đời anh.',
 ]
-const MUSIC_HINT = 'Ch\u1ea1m v\u00e0o m\u00e0n h\u00ecnh \u0111\u1ec3 b\u1eadt nh\u1ea1c nh\u00e9 \ud83d\udc9e'
+const MUSIC_HINT = 'Chạm vào màn hình để bật nhạc nhé ❤️'
 
 const hearts = Array.from({ length: 14 }, (_, index) => ({
   id: index,
@@ -309,10 +308,6 @@ function App() {
           animation-delay: 0.95s;
         }
 
-        .wish-line.delay-2 {
-          animation-delay: 1.25s;
-        }
-
         .message {
           margin: 18px auto 0;
           width: min(100%, 330px);
@@ -458,7 +453,7 @@ function App() {
                 fontSize: heart.size,
               }}
             >
-              {'\u2764'}
+              {'❤'}
             </span>
           ))}
         </div>
@@ -485,9 +480,8 @@ function App() {
 
             <h2 className="title-script">For {BIRTHDAY_NAME}</h2>
             <p className="wish-line delay-1">
-              {WISH_TITLE} {BIRTHDAY_NAME} {'\ud83d\udc96'}
+              {WISH_TITLE} {BIRTHDAY_NAME} {'💖'}
             </p>
-            <p className="wish-line delay-2">{WISH_SUBTITLE}</p>
 
             <div className="message">
               <p className="message-line delay-3">{MESSAGE_LINES[0]}</p>
