@@ -12,12 +12,14 @@ const UNLOCK_AT = '2026-03-29T16:53:00'
 const BIRTHDAY_NAME = 'Bé Iu'
 const LOCK_TITLE = 'Chưa đến giờ đâu bae ❤️'
 const LOCK_SUBTITLE = 'Quay lại sau nhé 💖'
+const OPEN_BUTTON_LABEL = 'Mở được rùi nha ❤️'
+const OPEN_HINT = 'Đến giờ rồi đó, bấm vào để mở bất ngờ nha 💌'
 const WISH_TITLE = 'Chúc mừng sinh nhật'
 const MESSAGE_LINES = [
   'Chúc em tuổi mới luôn vui vẻ,',
   'luôn xinh đẹp và luôn ở bên anh ❤️',
 ]
-const MUSIC_HINT = 'Chạm vào màn hình để bật nhạc nhé ❤️'
+const MUSIC_HINT = 'Nếu nhạc chưa phát, chạm thêm một lần nữa nhé ❤️'
 
 const hearts = Array.from({ length: 14 }, (_, index) => ({
   id: index,
@@ -59,9 +61,8 @@ function App() {
     new URLSearchParams(window.location.search).get('preview') === '1'
 
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft)
-  const [isUnlocked, setIsUnlocked] = useState(
-    () => isPreviewMode || new Date() >= new Date(UNLOCK_AT),
-  )
+  const [canOpen, setCanOpen] = useState(() => isPreviewMode || new Date() >= new Date(UNLOCK_AT))
+  const [isUnlocked, setIsUnlocked] = useState(() => false)
   const [showTapHint, setShowTapHint] = useState(false)
   const [photoSrc, setPhotoSrc] = useState('/couple-photo.webp')
   const audioRef = useRef<HTMLAudioElement | null>(null)
@@ -72,27 +73,12 @@ function App() {
       setTimeLeft(nextTimeLeft)
 
       if (isPreviewMode || nextTimeLeft.total <= 0) {
-        setIsUnlocked(true)
+        setCanOpen(true)
       }
     }, 1000)
 
     return () => window.clearInterval(timer)
   }, [isPreviewMode])
-
-  useEffect(() => {
-    if (!isUnlocked || !audioRef.current) return
-
-    const tryPlay = async () => {
-      try {
-        await audioRef.current?.play()
-        setShowTapHint(false)
-      } catch {
-        setShowTapHint(true)
-      }
-    }
-
-    void tryPlay()
-  }, [isUnlocked])
 
   useEffect(() => {
     if (!showTapHint || !audioRef.current) return
@@ -110,6 +96,22 @@ function App() {
       window.removeEventListener('touchstart', handleFirstInteraction)
     }
   }, [showTapHint])
+
+  const handleOpen = async () => {
+    if (!canOpen) return
+
+    setIsUnlocked(true)
+
+    if (!audioRef.current) return
+
+    try {
+      audioRef.current.currentTime = 0
+      await audioRef.current.play()
+      setShowTapHint(false)
+    } catch {
+      setShowTapHint(true)
+    }
+  }
 
   const countdown = useMemo(() => {
     const dayPart = timeLeft.days > 0 ? `${pad(timeLeft.days)} : ` : ''
@@ -238,6 +240,42 @@ function App() {
           margin: 0;
           font-size: 1.14rem;
           color: rgba(255, 235, 243, 0.88);
+        }
+
+        .open-button {
+          margin-top: 18px;
+          width: 100%;
+          border: 0;
+          border-radius: 999px;
+          padding: 14px 18px;
+          font-family: 'Be Vietnam Pro', sans-serif;
+          font-size: 0.98rem;
+          font-weight: 700;
+          letter-spacing: 0.01em;
+          color: #fff7fb;
+          background: linear-gradient(135deg, #ff7eb3 0%, #ff4f8d 100%);
+          box-shadow: 0 14px 30px rgba(255, 87, 148, 0.28);
+          transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .open-button:enabled {
+          cursor: pointer;
+        }
+
+        .open-button:enabled:active {
+          transform: scale(0.98);
+        }
+
+        .open-button:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+          box-shadow: none;
+        }
+
+        .open-hint {
+          margin: 12px 0 0;
+          font-size: 1rem;
+          color: rgba(255, 233, 242, 0.88);
         }
 
         .main {
@@ -459,7 +497,10 @@ function App() {
             <p className="eyebrow">Secret Birthday Countdown</p>
             <h1 className="lock-title">{LOCK_TITLE}</h1>
             <div className="countdown">{countdown}</div>
-            <p className="unlock-text">{LOCK_SUBTITLE}</p>
+            <p className="unlock-text">{canOpen ? OPEN_HINT : LOCK_SUBTITLE}</p>
+            <button className="open-button" type="button" onClick={() => void handleOpen()} disabled={!canOpen}>
+              {OPEN_BUTTON_LABEL}
+            </button>
           </section>
         ) : (
           <main className="main">
