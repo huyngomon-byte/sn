@@ -9,7 +9,17 @@ type TimeLeft = {
 }
 
 const UNLOCK_AT = '2026-04-16T00:00:00'
-const BIRTHDAY_NAME = 'Bé Iu'
+const BIRTHDAY_NAME = 'B\u00e9 Iu'
+const LOCK_TITLE = 'Ch\u01b0a \u0111\u1ebfn gi\u1edd \u0111\u00e2u \ud83d\ude0f'
+const LOCK_SUBTITLE = 'Quay l\u1ea1i sau nh\u00e9 \ud83d\udc96'
+const WISH_TITLE = 'Ch\u00fac m\u1eebng sinh nh\u1eadt'
+const WISH_SUBTITLE = 'Tu\u1ed5i m\u1edbi th\u1eadt d\u1ecbu d\u00e0ng v\u00e0 r\u1ef1c r\u1ee1 nh\u00e9'
+const MESSAGE_LINES = [
+  'Ch\u00fac em tu\u1ed5i m\u1edbi lu\u00f4n vui v\u1ebb,',
+  'lu\u00f4n xinh \u0111\u1eb9p v\u00e0 lu\u00f4n \u1edf b\u00ean anh \ud83d\ude0f',
+  'C\u1ea3m \u01a1n v\u00ec \u0111\u00e3 xu\u1ea5t hi\u1ec7n trong cu\u1ed9c \u0111\u1eddi anh.',
+]
+const MUSIC_HINT = 'Ch\u1ea1m v\u00e0o m\u00e0n h\u00ecnh \u0111\u1ec3 b\u1eadt nh\u1ea1c nh\u00e9 \ud83d\udc9e'
 
 const hearts = Array.from({ length: 14 }, (_, index) => ({
   id: index,
@@ -46,8 +56,14 @@ const calculateTimeLeft = (): TimeLeft => {
 const pad = (value: number) => value.toString().padStart(2, '0')
 
 function App() {
+  const isPreviewMode =
+    typeof window !== 'undefined' &&
+    new URLSearchParams(window.location.search).get('preview') === '1'
+
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft)
-  const [isUnlocked, setIsUnlocked] = useState(() => new Date() >= new Date(UNLOCK_AT))
+  const [isUnlocked, setIsUnlocked] = useState(
+    () => isPreviewMode || new Date() >= new Date(UNLOCK_AT),
+  )
   const [showTapHint, setShowTapHint] = useState(false)
   const [photoSrc, setPhotoSrc] = useState('/couple-photo.webp')
   const audioRef = useRef<HTMLAudioElement | null>(null)
@@ -57,13 +73,13 @@ function App() {
       const nextTimeLeft = calculateTimeLeft()
       setTimeLeft(nextTimeLeft)
 
-      if (nextTimeLeft.total <= 0) {
+      if (isPreviewMode || nextTimeLeft.total <= 0) {
         setIsUnlocked(true)
       }
     }, 1000)
 
     return () => window.clearInterval(timer)
-  }, [])
+  }, [isPreviewMode])
 
   useEffect(() => {
     if (!isUnlocked || !audioRef.current) return
@@ -224,6 +240,22 @@ function App() {
           width: min(100%, 430px);
           text-align: center;
           animation: fadeUp 1.25s ease both;
+        }
+
+        .preview-pill {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 14px;
+          padding: 8px 14px;
+          border: 1px solid rgba(255, 214, 230, 0.24);
+          border-radius: 999px;
+          background: rgba(255, 228, 238, 0.12);
+          font-size: 0.82rem;
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: #ffdbe9;
         }
 
         .photo-wrap {
@@ -426,7 +458,7 @@ function App() {
                 fontSize: heart.size,
               }}
             >
-              ❤
+              {'\u2764'}
             </span>
           ))}
         </div>
@@ -434,12 +466,14 @@ function App() {
         {!isUnlocked ? (
           <section className="card lock-card">
             <p className="eyebrow">Secret Birthday Countdown</p>
-            <h1 className="lock-title">Chưa đến giờ đâu 😏</h1>
+            <h1 className="lock-title">{LOCK_TITLE}</h1>
             <div className="countdown">{countdown}</div>
-            <p className="unlock-text">Quay lại sau nhé 💖</p>
+            <p className="unlock-text">{LOCK_SUBTITLE}</p>
           </section>
         ) : (
           <main className="main">
+            {isPreviewMode ? <div className="preview-pill">Preview Mode</div> : null}
+
             <div className="photo-wrap">
               <img
                 className="photo"
@@ -450,20 +484,18 @@ function App() {
             </div>
 
             <h2 className="title-script">For {BIRTHDAY_NAME}</h2>
-            <p className="wish-line delay-1">Chúc mừng sinh nhật {BIRTHDAY_NAME} 💖</p>
-            <p className="wish-line delay-2">Tuổi mới thật dịu dàng và rực rỡ nhé</p>
+            <p className="wish-line delay-1">
+              {WISH_TITLE} {BIRTHDAY_NAME} {'\ud83d\udc96'}
+            </p>
+            <p className="wish-line delay-2">{WISH_SUBTITLE}</p>
 
             <div className="message">
-              <p className="message-line delay-3">Chúc em tuổi mới luôn vui vẻ,</p>
-              <p className="message-line delay-4">luôn xinh đẹp và luôn ở bên anh 😏</p>
-              <p className="message-line delay-5">
-                Cảm ơn vì đã xuất hiện trong cuộc đời anh.
-              </p>
+              <p className="message-line delay-3">{MESSAGE_LINES[0]}</p>
+              <p className="message-line delay-4">{MESSAGE_LINES[1]}</p>
+              <p className="message-line delay-5">{MESSAGE_LINES[2]}</p>
             </div>
 
-            {showTapHint ? (
-              <p className="music-hint">Chạm vào màn hình để bật nhạc nhé 💞</p>
-            ) : null}
+            {showTapHint ? <p className="music-hint">{MUSIC_HINT}</p> : null}
           </main>
         )}
 
