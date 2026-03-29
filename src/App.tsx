@@ -12,7 +12,7 @@ const UNLOCK_AT = '2026-04-16T00:00:00'
 const BIRTHDAY_NAME = 'Em Iu'
 const LOCK_TITLE = 'Chưa đến giờ đâu ❤️'
 const LOCK_SUBTITLE = 'Quay lại sau nhé 💖'
-const WISH_TITLE = 'Chúc mừng sinh nhật'
+const WISH_TITLE = 'Chúc mừng sinh nhật Em Iu ❤️'
 const MESSAGE_LINES = [
   'Chúc em tuổi mới luôn vui vẻ,',
   'luôn xinh đẹp và luôn ở bên anh ❤️',
@@ -120,13 +120,13 @@ function App() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;800&family=Parisienne&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Cormorant+Garamond:wght@500;600;700&family=Great+Vibes&display=swap');
 
         :root {
-          font-family: 'Be Vietnam Pro', sans-serif;
+          font-family: 'Cormorant Garamond', serif;
           color: #fff5fb;
           background:
-            radial-gradient(circle at top, rgba(255, 148, 196, 0.2), transparent 36%),
+            radial-gradient(circle at top, rgba(255, 148, 196, 0.22), transparent 36%),
             linear-gradient(180deg, #09040d 0%, #170816 45%, #3e0f31 100%);
         }
 
@@ -145,7 +145,7 @@ function App() {
           min-height: 100vh;
           overflow: hidden;
           background:
-            radial-gradient(circle at top, rgba(255, 148, 196, 0.2), transparent 36%),
+            radial-gradient(circle at top, rgba(255, 148, 196, 0.22), transparent 36%),
             linear-gradient(180deg, #09040d 0%, #170816 45%, #3e0f31 100%);
         }
 
@@ -206,8 +206,9 @@ function App() {
         }
 
         .eyebrow {
-          margin: 0 0 10px;
-          font-size: 0.86rem;
+          margin: 0 0 12px;
+          font-family: 'Be Vietnam Pro', sans-serif;
+          font-size: 0.8rem;
           letter-spacing: 0.18em;
           text-transform: uppercase;
           color: rgba(255, 211, 229, 0.72);
@@ -215,15 +216,17 @@ function App() {
 
         .lock-title {
           margin: 0;
-          font-size: clamp(2.2rem, 8vw, 3.2rem);
-          font-weight: 800;
+          font-family: 'Great Vibes', cursive;
+          font-size: clamp(3rem, 11vw, 4.4rem);
+          font-weight: 400;
           line-height: 1.05;
           animation: softPulse 2.4s ease-in-out infinite;
         }
 
         .countdown {
           margin: 18px 0 10px;
-          font-size: clamp(1.4rem, 7vw, 2.4rem);
+          font-family: 'Be Vietnam Pro', sans-serif;
+          font-size: clamp(1.2rem, 6vw, 2rem);
           font-weight: 700;
           letter-spacing: 0.08em;
           color: #ffd7e9;
@@ -231,8 +234,9 @@ function App() {
 
         .unlock-text {
           margin: 0;
-          font-size: 0.98rem;
-          color: rgba(255, 232, 242, 0.78);
+          font-family: 'Cormorant Garamond', serif;
+          font-size: 1.2rem;
+          color: rgba(255, 232, 242, 0.9);
         }
 
         .main {
@@ -250,7 +254,8 @@ function App() {
           border: 1px solid rgba(255, 214, 230, 0.24);
           border-radius: 999px;
           background: rgba(255, 228, 238, 0.12);
-          font-size: 0.82rem;
+          font-family: 'Be Vietnam Pro', sans-serif;
+          font-size: 0.78rem;
           font-weight: 700;
           letter-spacing: 0.08em;
           text-transform: uppercase;
@@ -259,7 +264,7 @@ function App() {
 
         .photo-wrap {
           position: relative;
-          margin: 0 auto 22px;
+          margin: 0 auto 24px;
           width: min(76vw, 280px);
           animation: fadeUp 1s ease both 0.2s;
           animation-fill-mode: both;
@@ -286,20 +291,13 @@ function App() {
           animation: photoFloat 5s ease-in-out infinite;
         }
 
-        .title-script {
-          margin: 0 0 10px;
-          font-family: 'Parisienne', cursive;
-          font-size: clamp(2.2rem, 10vw, 3.8rem);
-          color: #ffe0ee;
-          opacity: 0;
-          animation: fadeLine 0.9s ease forwards 0.6s;
-        }
-
         .wish-line {
           margin: 0;
-          font-size: clamp(1.55rem, 6.5vw, 2.4rem);
-          font-weight: 800;
-          line-height: 1.2;
+          font-family: 'Great Vibes', cursive;
+          font-size: clamp(2.8rem, 11vw, 4.2rem);
+          font-weight: 400;
+          line-height: 1.08;
+          color: #ffe5f0;
           opacity: 0;
           animation: fadeLine 0.85s ease forwards;
         }
@@ -310,14 +308,14 @@ function App() {
 
         .message {
           margin: 18px auto 0;
-          width: min(100%, 330px);
+          width: min(100%, 340px);
         }
 
         .message-line {
           margin: 0 0 8px;
-          font-size: 1rem;
-          line-height: 1.7;
-          color: rgba(255, 236, 244, 0.9);
+          font-size: 1.28rem;
+          line-height: 1.6;
+          color: rgba(255, 236, 244, 0.92);
           opacity: 0;
           transform: translateY(12px);
           animation: fadeLine 0.85s ease forwards;
@@ -337,6 +335,7 @@ function App() {
 
         .music-hint {
           margin-top: 18px;
+          font-family: 'Be Vietnam Pro', sans-serif;
           font-size: 0.92rem;
           color: rgba(255, 216, 231, 0.85);
           opacity: 0;
@@ -478,10 +477,7 @@ function App() {
               />
             </div>
 
-            <h2 className="title-script">For {BIRTHDAY_NAME}</h2>
-            <p className="wish-line delay-1">
-              {WISH_TITLE} {BIRTHDAY_NAME} {'💖'}
-            </p>
+            <p className="wish-line delay-1">{WISH_TITLE}</p>
 
             <div className="message">
               <p className="message-line delay-3">{MESSAGE_LINES[0]}</p>
