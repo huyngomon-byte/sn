@@ -9,14 +9,13 @@ type TimeLeft = {
 }
 
 const UNLOCK_AT = '2026-04-16T00:00:00'
-const BIRTHDAY_NAME = 'Em Iu'
+const BIRTHDAY_NAME = 'Bé Iu'
 const LOCK_TITLE = 'Chưa đến giờ đâu ❤️'
 const LOCK_SUBTITLE = 'Quay lại sau nhé 💖'
-const WISH_TITLE = 'Chúc mừng sinh nhật Em Iu ❤️'
+const WISH_TITLE = 'Chúc mừng sinh nhật'
 const MESSAGE_LINES = [
   'Chúc em tuổi mới luôn vui vẻ,',
   'luôn xinh đẹp và luôn ở bên anh ❤️',
-  'Cảm ơn vì đã xuất hiện trong cuộc đời anh.',
 ]
 const MUSIC_HINT = 'Chạm vào màn hình để bật nhạc nhé ❤️'
 
@@ -120,14 +119,15 @@ function App() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Cormorant+Garamond:wght@500;600;700&family=Great+Vibes&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Parisienne&display=swap');
 
         :root {
           font-family: 'Cormorant Garamond', serif;
-          color: #fff5fb;
+          color: #fff7fb;
           background:
-            radial-gradient(circle at top, rgba(255, 148, 196, 0.22), transparent 36%),
-            linear-gradient(180deg, #09040d 0%, #170816 45%, #3e0f31 100%);
+            radial-gradient(circle at top, rgba(255, 196, 222, 0.25), transparent 34%),
+            radial-gradient(circle at bottom right, rgba(255, 151, 196, 0.18), transparent 30%),
+            linear-gradient(180deg, #12070f 0%, #2b0d24 48%, #5b1c43 100%);
         }
 
         * {
@@ -145,8 +145,9 @@ function App() {
           min-height: 100vh;
           overflow: hidden;
           background:
-            radial-gradient(circle at top, rgba(255, 148, 196, 0.22), transparent 36%),
-            linear-gradient(180deg, #09040d 0%, #170816 45%, #3e0f31 100%);
+            radial-gradient(circle at top, rgba(255, 196, 222, 0.25), transparent 34%),
+            radial-gradient(circle at bottom right, rgba(255, 151, 196, 0.18), transparent 30%),
+            linear-gradient(180deg, #12070f 0%, #2b0d24 48%, #5b1c43 100%);
         }
 
         button,
@@ -171,7 +172,7 @@ function App() {
           width: 260px;
           height: 260px;
           border-radius: 999px;
-          filter: blur(16px);
+          filter: blur(18px);
           opacity: 0.42;
           z-index: -1;
           animation: pulseGlow 5s ease-in-out infinite;
@@ -180,24 +181,24 @@ function App() {
         .glow.top {
           top: 8%;
           left: -40px;
-          background: rgba(255, 120, 180, 0.22);
+          background: rgba(255, 172, 208, 0.28);
         }
 
         .glow.bottom {
           right: -60px;
           bottom: 6%;
-          background: rgba(255, 184, 214, 0.18);
+          background: rgba(255, 225, 235, 0.16);
           animation-delay: -2.5s;
         }
 
         .card {
           width: min(100%, 420px);
-          border: 1px solid rgba(255, 255, 255, 0.12);
-          border-radius: 28px;
-          padding: 28px 22px;
+          border: 1px solid rgba(255, 238, 245, 0.16);
+          border-radius: 30px;
+          padding: 30px 24px;
           text-align: center;
-          background: rgba(17, 7, 18, 0.64);
-          backdrop-filter: blur(18px);
+          background: rgba(33, 11, 28, 0.62);
+          backdrop-filter: blur(20px);
           box-shadow: 0 22px 70px rgba(0, 0, 0, 0.34);
         }
 
@@ -211,15 +212,16 @@ function App() {
           font-size: 0.8rem;
           letter-spacing: 0.18em;
           text-transform: uppercase;
-          color: rgba(255, 211, 229, 0.72);
+          color: rgba(255, 228, 238, 0.74);
         }
 
         .lock-title {
           margin: 0;
-          font-family: 'Great Vibes', cursive;
-          font-size: clamp(3rem, 11vw, 4.4rem);
+          font-family: 'Parisienne', cursive;
+          font-size: clamp(2.9rem, 10vw, 4rem);
           font-weight: 400;
-          line-height: 1.05;
+          line-height: 1.02;
+          color: #fff2f8;
           animation: softPulse 2.4s ease-in-out infinite;
         }
 
@@ -229,14 +231,13 @@ function App() {
           font-size: clamp(1.2rem, 6vw, 2rem);
           font-weight: 700;
           letter-spacing: 0.08em;
-          color: #ffd7e9;
+          color: #ffd8e8;
         }
 
         .unlock-text {
           margin: 0;
-          font-family: 'Cormorant Garamond', serif;
-          font-size: 1.2rem;
-          color: rgba(255, 232, 242, 0.9);
+          font-size: 1.14rem;
+          color: rgba(255, 235, 243, 0.88);
         }
 
         .main {
@@ -251,15 +252,15 @@ function App() {
           justify-content: center;
           margin-bottom: 14px;
           padding: 8px 14px;
-          border: 1px solid rgba(255, 214, 230, 0.24);
+          border: 1px solid rgba(255, 218, 231, 0.26);
           border-radius: 999px;
-          background: rgba(255, 228, 238, 0.12);
+          background: rgba(255, 231, 239, 0.12);
           font-family: 'Be Vietnam Pro', sans-serif;
           font-size: 0.78rem;
           font-weight: 700;
           letter-spacing: 0.08em;
           text-transform: uppercase;
-          color: #ffdbe9;
+          color: #ffe2ee;
         }
 
         .photo-wrap {
@@ -275,8 +276,8 @@ function App() {
           position: absolute;
           inset: -10px;
           border-radius: 32px;
-          background: linear-gradient(135deg, rgba(255, 180, 213, 0.45), rgba(255, 255, 255, 0.08));
-          filter: blur(12px);
+          background: linear-gradient(135deg, rgba(255, 195, 221, 0.5), rgba(255, 255, 255, 0.08));
+          filter: blur(14px);
           z-index: -1;
         }
 
@@ -286,18 +287,27 @@ function App() {
           aspect-ratio: 4 / 5;
           object-fit: cover;
           border-radius: 26px;
-          border: 1px solid rgba(255, 255, 255, 0.14);
+          border: 1px solid rgba(255, 244, 248, 0.16);
           box-shadow: 0 18px 45px rgba(0, 0, 0, 0.3);
           animation: photoFloat 5s ease-in-out infinite;
         }
 
+        .title-script {
+          margin: 0 0 10px;
+          font-family: 'Parisienne', cursive;
+          font-size: clamp(2.3rem, 10vw, 3.8rem);
+          color: #ffe7f1;
+          opacity: 0;
+          animation: fadeLine 0.9s ease forwards 0.6s;
+        }
+
         .wish-line {
           margin: 0;
-          font-family: 'Great Vibes', cursive;
-          font-size: clamp(2.8rem, 11vw, 4.2rem);
-          font-weight: 400;
-          line-height: 1.08;
-          color: #ffe5f0;
+          font-size: clamp(1.7rem, 7vw, 2.5rem);
+          font-weight: 700;
+          line-height: 1.2;
+          color: #fff2f7;
+          text-shadow: 0 6px 22px rgba(255, 146, 195, 0.14);
           opacity: 0;
           animation: fadeLine 0.85s ease forwards;
         }
@@ -307,15 +317,15 @@ function App() {
         }
 
         .message {
-          margin: 18px auto 0;
-          width: min(100%, 340px);
+          margin: 20px auto 0;
+          width: min(100%, 336px);
         }
 
         .message-line {
-          margin: 0 0 8px;
-          font-size: 1.28rem;
-          line-height: 1.6;
-          color: rgba(255, 236, 244, 0.92);
+          margin: 0 0 10px;
+          font-size: 1.16rem;
+          line-height: 1.72;
+          color: rgba(255, 239, 245, 0.94);
           opacity: 0;
           transform: translateY(12px);
           animation: fadeLine 0.85s ease forwards;
@@ -329,17 +339,13 @@ function App() {
           animation-delay: 1.85s;
         }
 
-        .message-line.delay-5 {
-          animation-delay: 2.15s;
-        }
-
         .music-hint {
           margin-top: 18px;
           font-family: 'Be Vietnam Pro', sans-serif;
           font-size: 0.92rem;
-          color: rgba(255, 216, 231, 0.85);
+          color: rgba(255, 223, 234, 0.9);
           opacity: 0;
-          animation: fadeLine 0.7s ease forwards 2.45s;
+          animation: fadeLine 0.7s ease forwards 2.2s;
         }
 
         .heart-layer {
@@ -353,11 +359,11 @@ function App() {
         .heart {
           position: absolute;
           bottom: -40px;
-          color: rgba(255, 182, 211, 0.38);
+          color: rgba(255, 193, 218, 0.44);
           animation-name: driftHeart;
           animation-timing-function: linear;
           animation-iteration-count: infinite;
-          text-shadow: 0 0 20px rgba(255, 165, 204, 0.28);
+          text-shadow: 0 0 20px rgba(255, 180, 211, 0.3);
         }
 
         @keyframes fadeUp {
@@ -477,12 +483,14 @@ function App() {
               />
             </div>
 
-            <p className="wish-line delay-1">{WISH_TITLE}</p>
+            <h2 className="title-script">For {BIRTHDAY_NAME}</h2>
+            <p className="wish-line delay-1">
+              {WISH_TITLE} {BIRTHDAY_NAME} {'❤️'}
+            </p>
 
             <div className="message">
               <p className="message-line delay-3">{MESSAGE_LINES[0]}</p>
               <p className="message-line delay-4">{MESSAGE_LINES[1]}</p>
-              <p className="message-line delay-5">{MESSAGE_LINES[2]}</p>
             </div>
 
             {showTapHint ? <p className="music-hint">{MUSIC_HINT}</p> : null}
