@@ -121,10 +121,10 @@ function App() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
 
         :root {
-          font-family: 'Be Vietnam Pro', sans-serif;
+          font-family: 'Plus Jakarta Sans', 'Be Vietnam Pro', sans-serif;
           color: #fff8fc;
           background:
             radial-gradient(circle at top, rgba(255, 205, 226, 0.28), transparent 34%),
@@ -218,9 +218,9 @@ function App() {
 
         .lock-title {
           margin: 0;
-          font-family: 'Nunito', sans-serif;
+          font-family: 'Plus Jakarta Sans', 'Be Vietnam Pro', sans-serif;
           font-size: clamp(2.5rem, 9vw, 3.5rem);
-          font-weight: 900;
+          font-weight: 800;
           line-height: 1.1;
           letter-spacing: -0.04em;
           color: #fff2f8;
@@ -230,7 +230,7 @@ function App() {
         .countdown {
           margin: 18px 0 10px;
           font-size: clamp(1.2rem, 6vw, 2rem);
-          font-weight: 800;
+          font-weight: 700;
           letter-spacing: 0.08em;
           color: #ffd8e8;
         }
@@ -248,7 +248,7 @@ function App() {
           border-radius: 999px;
           padding: 14px 18px;
           font-size: 0.98rem;
-          font-weight: 800;
+          font-weight: 700;
           color: #fff7fb;
           background: linear-gradient(135deg, #ff7eb3 0%, #ff4f8d 100%);
           box-shadow: 0 14px 30px rgba(255, 87, 148, 0.28);
@@ -322,9 +322,9 @@ function App() {
 
         .wish-line {
           margin: 0;
-          font-family: 'Nunito', sans-serif;
+          font-family: 'Plus Jakarta Sans', 'Be Vietnam Pro', sans-serif;
           font-size: clamp(1.8rem, 7vw, 2.55rem);
-          font-weight: 900;
+          font-weight: 700;
           line-height: 1.2;
           letter-spacing: -0.03em;
           color: #fff2f7;
