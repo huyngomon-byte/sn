@@ -121,15 +121,15 @@ function App() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap');
 
         :root {
-          font-family: 'Cormorant Garamond', serif;
-          color: #fff7fb;
+          font-family: 'Be Vietnam Pro', sans-serif;
+          color: #fff8fc;
           background:
-            radial-gradient(circle at top, rgba(255, 196, 222, 0.25), transparent 34%),
-            radial-gradient(circle at bottom right, rgba(255, 151, 196, 0.18), transparent 30%),
-            linear-gradient(180deg, #12070f 0%, #2b0d24 48%, #5b1c43 100%);
+            radial-gradient(circle at top, rgba(255, 205, 226, 0.28), transparent 34%),
+            radial-gradient(circle at bottom right, rgba(255, 146, 196, 0.2), transparent 30%),
+            linear-gradient(180deg, #130811 0%, #311228 48%, #6a2551 100%);
         }
 
         * {
@@ -147,9 +147,9 @@ function App() {
           min-height: 100vh;
           overflow: hidden;
           background:
-            radial-gradient(circle at top, rgba(255, 196, 222, 0.25), transparent 34%),
-            radial-gradient(circle at bottom right, rgba(255, 151, 196, 0.18), transparent 30%),
-            linear-gradient(180deg, #12070f 0%, #2b0d24 48%, #5b1c43 100%);
+            radial-gradient(circle at top, rgba(255, 205, 226, 0.28), transparent 34%),
+            radial-gradient(circle at bottom right, rgba(255, 146, 196, 0.2), transparent 30%),
+            linear-gradient(180deg, #130811 0%, #311228 48%, #6a2551 100%);
         }
 
         button,
@@ -183,23 +183,23 @@ function App() {
         .glow.top {
           top: 8%;
           left: -40px;
-          background: rgba(255, 172, 208, 0.28);
+          background: rgba(255, 170, 207, 0.3);
         }
 
         .glow.bottom {
           right: -60px;
           bottom: 6%;
-          background: rgba(255, 225, 235, 0.16);
+          background: rgba(255, 229, 238, 0.18);
           animation-delay: -2.5s;
         }
 
         .card {
           width: min(100%, 420px);
-          border: 1px solid rgba(255, 238, 245, 0.16);
+          border: 1px solid rgba(255, 238, 245, 0.18);
           border-radius: 30px;
           padding: 30px 24px;
           text-align: center;
-          background: rgba(33, 11, 28, 0.62);
+          background: rgba(40, 13, 33, 0.62);
           backdrop-filter: blur(20px);
           box-shadow: 0 22px 70px rgba(0, 0, 0, 0.34);
         }
@@ -210,7 +210,6 @@ function App() {
 
         .eyebrow {
           margin: 0 0 12px;
-          font-family: 'Be Vietnam Pro', sans-serif;
           font-size: 0.8rem;
           letter-spacing: 0.18em;
           text-transform: uppercase;
@@ -219,28 +218,27 @@ function App() {
 
         .lock-title {
           margin: 0;
-          font-family: 'Cormorant Garamond', serif;
-          font-size: clamp(2.7rem, 10vw, 3.7rem);
-          font-style: italic;
-          font-weight: 600;
-          line-height: 1.02;
+          font-family: 'Nunito', sans-serif;
+          font-size: clamp(2.5rem, 9vw, 3.5rem);
+          font-weight: 900;
+          line-height: 1.1;
+          letter-spacing: -0.04em;
           color: #fff2f8;
           animation: softPulse 2.4s ease-in-out infinite;
         }
 
         .countdown {
           margin: 18px 0 10px;
-          font-family: 'Be Vietnam Pro', sans-serif;
           font-size: clamp(1.2rem, 6vw, 2rem);
-          font-weight: 700;
+          font-weight: 800;
           letter-spacing: 0.08em;
           color: #ffd8e8;
         }
 
         .unlock-text {
           margin: 0;
-          font-size: 1.14rem;
-          color: rgba(255, 235, 243, 0.88);
+          font-size: 1rem;
+          color: rgba(255, 235, 243, 0.9);
         }
 
         .open-button {
@@ -249,10 +247,8 @@ function App() {
           border: 0;
           border-radius: 999px;
           padding: 14px 18px;
-          font-family: 'Be Vietnam Pro', sans-serif;
           font-size: 0.98rem;
-          font-weight: 700;
-          letter-spacing: 0.01em;
+          font-weight: 800;
           color: #fff7fb;
           background: linear-gradient(135deg, #ff7eb3 0%, #ff4f8d 100%);
           box-shadow: 0 14px 30px rgba(255, 87, 148, 0.28);
@@ -273,12 +269,6 @@ function App() {
           box-shadow: none;
         }
 
-        .open-hint {
-          margin: 12px 0 0;
-          font-size: 1rem;
-          color: rgba(255, 233, 242, 0.88);
-        }
-
         .main {
           width: min(100%, 430px);
           text-align: center;
@@ -294,7 +284,6 @@ function App() {
           border: 1px solid rgba(255, 218, 231, 0.26);
           border-radius: 999px;
           background: rgba(255, 231, 239, 0.12);
-          font-family: 'Be Vietnam Pro', sans-serif;
           font-size: 0.78rem;
           font-weight: 700;
           letter-spacing: 0.08em;
@@ -333,9 +322,11 @@ function App() {
 
         .wish-line {
           margin: 0;
-          font-size: clamp(1.7rem, 7vw, 2.5rem);
-          font-weight: 700;
+          font-family: 'Nunito', sans-serif;
+          font-size: clamp(1.8rem, 7vw, 2.55rem);
+          font-weight: 900;
           line-height: 1.2;
+          letter-spacing: -0.03em;
           color: #fff2f7;
           text-shadow: 0 6px 22px rgba(255, 146, 195, 0.14);
           opacity: 0;
@@ -353,7 +344,7 @@ function App() {
 
         .message-line {
           margin: 0 0 10px;
-          font-size: 1.16rem;
+          font-size: 1.04rem;
           line-height: 1.72;
           color: rgba(255, 239, 245, 0.94);
           opacity: 0;
@@ -371,7 +362,6 @@ function App() {
 
         .music-hint {
           margin-top: 18px;
-          font-family: 'Be Vietnam Pro', sans-serif;
           font-size: 0.92rem;
           color: rgba(255, 223, 234, 0.9);
           opacity: 0;
