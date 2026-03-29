@@ -292,15 +292,6 @@ function App() {
           animation: photoFloat 5s ease-in-out infinite;
         }
 
-        .title-script {
-          margin: 0 0 10px;
-          font-family: 'Parisienne', cursive;
-          font-size: clamp(2.3rem, 10vw, 3.8rem);
-          color: #ffe7f1;
-          opacity: 0;
-          animation: fadeLine 0.9s ease forwards 0.6s;
-        }
-
         .wish-line {
           margin: 0;
           font-size: clamp(1.7rem, 7vw, 2.5rem);
@@ -483,7 +474,6 @@ function App() {
               />
             </div>
 
-            <h2 className="title-script">For {BIRTHDAY_NAME}</h2>
             <p className="wish-line delay-1">
               {WISH_TITLE} {BIRTHDAY_NAME} {'❤️'}
             </p>
