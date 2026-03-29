@@ -121,10 +121,17 @@ function App() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+        @font-face {
+          font-family: 'CustomRomantic';
+          src: url('/fonts/custom-romantic.ttf') format('truetype');
+          font-weight: 400;
+          font-style: normal;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap');
 
         :root {
-          font-family: 'Plus Jakarta Sans', 'Be Vietnam Pro', sans-serif;
+          font-family: 'Be Vietnam Pro', sans-serif;
           color: #fff8fc;
           background:
             radial-gradient(circle at top, rgba(255, 205, 226, 0.28), transparent 34%),
@@ -218,11 +225,11 @@ function App() {
 
         .lock-title {
           margin: 0;
-          font-family: 'Plus Jakarta Sans', 'Be Vietnam Pro', sans-serif;
+          font-family: 'CustomRomantic', 'Be Vietnam Pro', sans-serif;
           font-size: clamp(2.5rem, 9vw, 3.5rem);
-          font-weight: 800;
+          font-weight: 400;
           line-height: 1.1;
-          letter-spacing: -0.04em;
+          letter-spacing: 0.01em;
           color: #fff2f8;
           animation: softPulse 2.4s ease-in-out infinite;
         }
@@ -322,11 +329,11 @@ function App() {
 
         .wish-line {
           margin: 0;
-          font-family: 'Plus Jakarta Sans', 'Be Vietnam Pro', sans-serif;
+          font-family: 'CustomRomantic', 'Be Vietnam Pro', sans-serif;
           font-size: clamp(1.8rem, 7vw, 2.55rem);
-          font-weight: 700;
+          font-weight: 400;
           line-height: 1.2;
-          letter-spacing: -0.03em;
+          letter-spacing: 0.01em;
           color: #fff2f7;
           text-shadow: 0 6px 22px rgba(255, 146, 195, 0.14);
           opacity: 0;
