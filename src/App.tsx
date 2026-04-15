@@ -17,8 +17,8 @@ const OPEN_HINT = 'Đến giờ rồi đó, bấm vào để mở bất ngờ nh
 const WISH_TITLE = 'Chúc mừng sinh nhật'
 const MESSAGE_LINES = [
   'Anh Yêu em❤️ Chúc em tuổi mới luôn vui vẻ, xinh đẹp và luôn yêu anh nhé💖',
-  'Đây là năm thứ 4 bọn mình yêu nhau và đón sinh nhật cùng nhau,',
-  'Anh mong là mình có thể đón sinh nhật cùng nhau thêm nhiều năm nữa nhé. Yêu emmm❤️'
+  'Đây là năm thứ 4 bọn mình yêu nhau và đón sinh nhật cùng nhau. Anh mong là mình có thể đón sinh nhật cùng nhau thêm nhiều năm nữa nhé. Yêu emmm❤️',
+
   
 ]
 const MUSIC_HINT = 'Nếu nhạc chưa phát, chạm thêm một lần nữa nhé ❤️'
