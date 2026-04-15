@@ -16,7 +16,7 @@ const OPEN_BUTTON_LABEL = 'Mở được rùi nha ❤️'
 const OPEN_HINT = 'Đến giờ rồi đó, bấm vào để mở bất ngờ nha 💌'
 const WISH_TITLE = 'Chúc mừng sinh nhật'
 const MESSAGE_LINES = [
-  'Chúc em tuổi mới luôn vui vẻ,',
+  'Anh Yêu em❤️ Chúc em tuổi mới luôn vui vẻ,',
   'luôn xinh đẹp và luôn ở bên anh ❤️',
 ]
 const MUSIC_HINT = 'Nếu nhạc chưa phát, chạm thêm một lần nữa nhé ❤️'
