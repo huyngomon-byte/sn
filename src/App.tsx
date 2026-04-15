@@ -16,9 +16,10 @@ const OPEN_BUTTON_LABEL = 'Mở được rùi nha ❤️'
 const OPEN_HINT = 'Đến giờ rồi đó, bấm vào để mở bất ngờ nha 💌'
 const WISH_TITLE = 'Chúc mừng sinh nhật'
 const MESSAGE_LINES = [
-  'Chúc em tuổi mới luôn vui vẻ, xinh đẹp và luôn yêu anh nhé💖',
-  'Đây là năm thứ 4 bọn mình yêu nhau và cũng là năm thứ 4 anh đón sinh nhật cùng với em',
-  'Anh mong là mình có thể đón sinh nhật cùng nhau thêm nhiều năm nữa nhé. Yêu emmm❤️',
+  'Anh Yêu em❤️ Chúc em tuổi mới luôn vui vẻ, xinh đẹp và luôn yêu anh nhé💖',
+  'Đây là năm thứ 4 bọn mình yêu nhau và đón sinh nhật cùng nhau,',
+  'Anh mong là mình có thể đón sinh nhật cùng nhau thêm nhiều năm nữa nhé. Yêu emmm❤️'
+  
 ]
 const MUSIC_HINT = 'Nếu nhạc chưa phát, chạm thêm một lần nữa nhé ❤️'
 
@@ -146,8 +147,7 @@ function App() {
 
         body {
           min-height: 100vh;
-          overflow-x: hidden;
-          overflow-y: auto;
+          overflow: hidden;
           background:
             radial-gradient(circle at top, rgba(255, 205, 226, 0.28), transparent 34%),
             radial-gradient(circle at bottom right, rgba(255, 146, 196, 0.2), transparent 30%),
@@ -167,7 +167,6 @@ function App() {
           align-items: center;
           justify-content: center;
           padding: 24px;
-          overflow: hidden;
           isolation: isolate;
         }
 
@@ -363,14 +362,6 @@ function App() {
           animation-delay: 1.85s;
         }
 
-        .message-line.delay-5 {
-          animation-delay: 2.15s;
-        }
-
-        .message-line.delay-6 {
-          animation-delay: 2.45s;
-        }
-
         .music-hint {
           margin-top: 18px;
           font-size: 0.92rem;
@@ -522,11 +513,8 @@ function App() {
             </p>
 
             <div className="message">
-              {MESSAGE_LINES.map((line, index) => (
-                <p key={line} className={`message-line delay-${index + 3}`}>
-                  {line}
-                </p>
-              ))}
+              <p className="message-line delay-3">{MESSAGE_LINES[0]}</p>
+              <p className="message-line delay-4">{MESSAGE_LINES[1]}</p>
             </div>
 
             {showTapHint ? <p className="music-hint">{MUSIC_HINT}</p> : null}
