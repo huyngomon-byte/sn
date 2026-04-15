@@ -9,17 +9,18 @@ type TimeLeft = {
 }
 
 const UNLOCK_AT = '2026-04-16T00:00:00'
-const BIRTHDAY_NAME = 'Bé Iu'
+const BIRTHDAY_NAME = 'em yêu'
 const LOCK_TITLE = 'Chưa đến giờ đâu bae ❤️'
 const LOCK_SUBTITLE = 'Quay lại sau nhé 💖'
 const OPEN_BUTTON_LABEL = 'Mở được rùi nha ❤️'
 const OPEN_HINT = 'Đến giờ rồi đó, bấm vào để mở bất ngờ nha 💌'
-const WISH_TITLE = 'Chúc mừng sinh nhật'
-const MESSAGE_LINES = [
-  'Anh Yêu em❤️ Chúc em tuổi mới luôn vui vẻ, xinh đẹp và luôn yêu anh nhé💖',
-  'Đây là năm thứ 4 bọn mình yêu nhau và đón sinh nhật cùng nhau. Anh mong là mình có thể đón sinh nhật cùng nhau thêm nhiều năm nữa nhé. Yêu emmm❤️',
-
-  
+const WISH_TITLE = 'Chúc mừng sinh nhật em yêu ❤️'
+const LETTER_PARAGRAPHS = [
+  'Có thể anh không hoàn hảo, vẫn nhiều khi làm em phải nghĩ, phải buồn nhưng anh luôn muốn dành những điều tốt nhất cho em và luôn yêu em, không phải chỉ hôm nay, mà là cả sau này.',
+  'Anh mong tuổi mới sẽ mang đến cho em thật nhiều niềm vui, thật nhiều may mắn, và những điều em mong muốn sẽ dần trở thành hiện thực.',
+  'Cảm ơn em vì đã đến, vì đã yêu anh, luôn tha thứ cho những lỗi lầm của anh.',
+  'Chúc em một sinh nhật thật hạnh phúc 🎂',
+  'Và chúc cho chúng ta sẽ còn cùng nhau đón thật nhiều sinh nhật bên nhau nữa nhé. Anh yêu emm ❤️',
 ]
 const MUSIC_HINT = 'Nếu nhạc chưa phát, chạm thêm một lần nữa nhé ❤️'
 
@@ -147,7 +148,8 @@ function App() {
 
         body {
           min-height: 100vh;
-          overflow: hidden;
+          overflow-x: hidden;
+          overflow-y: auto;
           background:
             radial-gradient(circle at top, rgba(255, 205, 226, 0.28), transparent 34%),
             radial-gradient(circle at bottom right, rgba(255, 146, 196, 0.2), transparent 30%),
@@ -166,7 +168,7 @@ function App() {
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 24px;
+          padding: 22px;
           isolation: isolate;
         }
 
@@ -273,6 +275,7 @@ function App() {
 
         .main {
           width: min(100%, 430px);
+          padding: 18px 0 28px;
           text-align: center;
           animation: fadeUp 1.25s ease both;
         }
@@ -295,8 +298,8 @@ function App() {
 
         .photo-wrap {
           position: relative;
-          margin: 0 auto 24px;
-          width: min(76vw, 280px);
+          margin: 0 auto 18px;
+          width: min(66vw, 232px);
           animation: fadeUp 1s ease both 0.2s;
           animation-fill-mode: both;
         }
@@ -325,9 +328,9 @@ function App() {
         .wish-line {
           margin: 0;
           font-family: 'Noto Serif', serif;
-          font-size: clamp(1.7rem, 6.5vw, 2.3rem);
-          font-weight: 600;
-          line-height: 1.2;
+          font-size: clamp(1.9rem, 7vw, 2.55rem);
+          font-weight: 700;
+          line-height: 1.18;
           letter-spacing: -0.02em;
           color: #fff2f7;
           text-shadow: 0 6px 22px rgba(255, 146, 195, 0.14);
@@ -339,27 +342,65 @@ function App() {
           animation-delay: 0.95s;
         }
 
-        .message {
+        .letter-card {
+          position: relative;
           margin: 20px auto 0;
-          width: min(100%, 336px);
+          width: min(100%, 370px);
+          padding: 18px 18px 16px;
+          border: 1px solid rgba(255, 236, 244, 0.18);
+          border-radius: 24px;
+          background:
+            linear-gradient(180deg, rgba(255, 244, 248, 0.12), rgba(255, 225, 238, 0.06)),
+            rgba(62, 18, 47, 0.42);
+          box-shadow: 0 18px 42px rgba(20, 0, 16, 0.2);
+          text-align: left;
+          backdrop-filter: blur(16px);
         }
 
-        .message-line {
-          margin: 0 0 10px;
-          font-size: 1.04rem;
-          line-height: 1.72;
-          color: rgba(255, 239, 245, 0.94);
+        .letter-card::before {
+          content: '♡';
+          position: absolute;
+          top: -16px;
+          right: 22px;
+          font-size: 2.1rem;
+          color: rgba(255, 210, 228, 0.78);
+          text-shadow: 0 0 18px rgba(255, 151, 196, 0.32);
+        }
+
+        .letter-paragraph {
+          margin: 0 0 13px;
+          font-size: 0.98rem;
+          line-height: 1.76;
+          color: rgba(255, 242, 247, 0.94);
           opacity: 0;
           transform: translateY(12px);
           animation: fadeLine 0.85s ease forwards;
         }
 
-        .message-line.delay-3 {
-          animation-delay: 1.55s;
+        .letter-paragraph:last-child {
+          margin-bottom: 0;
+          color: #fff7fb;
+          font-weight: 600;
         }
 
-        .message-line.delay-4 {
-          animation-delay: 1.85s;
+        .letter-paragraph.delay-1 {
+          animation-delay: 1.3s;
+        }
+
+        .letter-paragraph.delay-2 {
+          animation-delay: 1.5s;
+        }
+
+        .letter-paragraph.delay-3 {
+          animation-delay: 1.7s;
+        }
+
+        .letter-paragraph.delay-4 {
+          animation-delay: 1.9s;
+        }
+
+        .letter-paragraph.delay-5 {
+          animation-delay: 2.1s;
         }
 
         .music-hint {
@@ -461,6 +502,10 @@ function App() {
           .card {
             padding: 34px 30px;
           }
+
+          .photo-wrap {
+            width: 260px;
+          }
         }
       `}</style>
 
@@ -508,14 +553,15 @@ function App() {
               />
             </div>
 
-            <p className="wish-line delay-1">
-              {WISH_TITLE} {BIRTHDAY_NAME} {'❤️'}
-            </p>
+            <h1 className="wish-line delay-1">{WISH_TITLE}</h1>
 
-            <div className="message">
-              <p className="message-line delay-3">{MESSAGE_LINES[0]}</p>
-              <p className="message-line delay-4">{MESSAGE_LINES[1]}</p>
-            </div>
+            <section className="letter-card" aria-label="Lời chúc sinh nhật">
+              {LETTER_PARAGRAPHS.map((paragraph, index) => (
+                <p key={paragraph} className={`letter-paragraph delay-${index + 1}`}>
+                  {paragraph}
+                </p>
+              ))}
+            </section>
 
             {showTapHint ? <p className="music-hint">{MUSIC_HINT}</p> : null}
           </main>
